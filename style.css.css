@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+    margin :0px;
+}
+.cointainer{
+    width :250px;
+    margin-left:500px ;
+    height:250px;
+    margin-top:20px;
+    
+}
+.box{
+    float:left;
+    width:50px;
+    height:50px;
+    border :1px solid black;
+}    
+
+
+
+
+
+
