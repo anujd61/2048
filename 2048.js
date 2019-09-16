@@ -1,32 +1,49 @@
 var grid = [
 	[0, 0, 0, 0],
-	[0, 0, 2, 0],
 	[0, 0, 0, 0],
-	[0, 0, 2, 0]
+	[0, 0, 0, 0],
+	[0, 0, 0, 0]
 ];
 
 var i, j, row, col = 0;
 
 
 
-// generateNumbers();
-// generateNumbers();
+generateNumbers();
+generateNumbers();
 // console.log(grid);
 // moveDown();
 // console.log(grid);
+document.getElementById("box1").innerHTML = grid[0][0];
+document.getElementById("box2").innerHTML = grid[0][1];
+document.getElementById("box3").innerHTML = grid[0][2];
+document.getElementById("box4").innerHTML = grid[0][3];
+document.getElementById("box5").innerHTML = grid[1][0];
+document.getElementById("box6").innerHTML = grid[1][1];
+document.getElementById("box7").innerHTML = grid[1][2];
+document.getElementById("box8").innerHTML = grid[1][3];
+document.getElementById("box9").innerHTML = grid[2][0];
+document.getElementById("box10").innerHTML = grid[2][1];
+document.getElementById("box11").innerHTML = grid[2][2];
+document.getElementById("box12").innerHTML = grid[2][3];
+document.getElementById("box13").innerHTML = grid[3][0];
+document.getElementById("box14").innerHTML = grid[3][1];
+document.getElementById("box15").innerHTML = grid[3][2];
+document.getElementById("box16").innerHTML = grid[3][3];
 
 function generateNumbers() {
-	var k=1;
-	while(k){
-	i = Math.floor(Math.random() * grid.length);
-	j = Math.floor(Math.random() * grid.length);
+	var k = 1;
+	while (k) {
+		i = Math.floor(Math.random() * grid.length);
+		j = Math.floor(Math.random() * grid.length);
 
-	if (grid[i][j] == 0) {
+		if (grid[i][j] == 0) {
 
-		grid[i][j] = 2;
-		k=0;
+			grid[i][j] = 2;
+			k = 0;
+		}
 	}
-}}
+}
 
 
 
@@ -71,7 +88,7 @@ function moveUp() {
 
 
 
-function rotate(matrix)  {
+function rotate(matrix) {
 	// Copy the original matrix
 	var origMatrix = matrix.slice();
 	for (var i = 0; i < matrix.length; i++) {
@@ -141,22 +158,22 @@ function gameOver() {
 
 	}
 
-	 console.log("You lost :(");
+	console.log("You lost :(");
 
 
 
 }
-// console.log('Game over');
 
+document.onkeydown = function (event) {
 
-// function gameWon() {
-// 	for (let i = 0; i < 4; i++) {
-// 		for (let j = 0; j < 4; j++) {
-// 			if (grid[i][j] == 2048) {
-// 				return true;
-// 			}
-// 		}
-// 	}
-// 	return false;
+	if (event.keyCode === 38 || event.keyCode === 87) {
+		moveUp();
+	} else if (event.keyCode === 39 || event.keyCode === 68) {
+		moveRight();
+	} else if (event.keyCode === 40 || event.keyCode === 83) {
+		moveDown();
+	} else if (event.keyCode === 37 || event.keyCode === 65) {
+		moveLeft();
+	}
 
-// }
+}
