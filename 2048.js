@@ -7,40 +7,29 @@ var grid = [
 
 var i, j, row, col = 0;
 
+
+
+// generateNumbers();
+// generateNumbers();
+// console.log(grid);
+// moveDown();
+// console.log(grid);
+
 function generateNumbers() {
+	var k=1;
+	while(k){
 	i = Math.floor(Math.random() * grid.length);
 	j = Math.floor(Math.random() * grid.length);
 
 	if (grid[i][j] == 0) {
 
 		grid[i][j] = 2;
+		k=0;
 	}
-}
-
-moveUp();
-
-console.log(grid);
-
-//generateNumbers();
-//generateNumbers();
-//console.log(grid);
+}}
 
 
 
-var rotate = function (matrix) {
-	// Copy the original matrix
-	var origMatrix = matrix.slice();
-	for (var i = 0; i < matrix.length; i++) {
-		// Map each row entry to its rotated value
-		var row = matrix[i].map(function (x, j) {
-			var k = (matrix.length - 1) - j;
-			return origMatrix[k][i];
-		});
-		matrix[i] = row;
-	}
-	return matrix;
-};
-console.log(rotate(grid));
 
 function moveUp() {
 
@@ -82,34 +71,40 @@ function moveUp() {
 
 
 
-
-
-
-
-
-
+function rotate(matrix)  {
+	// Copy the original matrix
+	var origMatrix = matrix.slice();
+	for (var i = 0; i < matrix.length; i++) {
+		// Map each row entry to its rotated value
+		var row = matrix[i].map(function (x, j) {
+			var k = (matrix.length - 1) - j;
+			return origMatrix[k][i];
+		});
+		matrix[i] = row;
+	}
+	return matrix;
+};
 
 
 function moveLeft() {
 
 
-	rotateBoard();
+	rotate(grid);
 	moveUp();
-	rotateBoard();
-	rotateBoard();
-
+	rotate(grid);
+	rotate(grid);
+	rotate(grid);
 }
 
 
 
 function moveRight() {
 
-	rotateBoard();
-	rotateBoard();
-	rotateBoard();
+	rotate(grid);
+	rotate(grid);
+	rotate(grid);
 	moveUp();
-	rotateBoard();
-
+	rotate(grid);
 
 }
 
@@ -117,18 +112,21 @@ function moveRight() {
 
 function moveDown() {
 
-	rotateBoard();
-	rotateBoard();
+	rotate(grid);
+	rotate(grid);
 	moveUp();
-	rotateBoard();
-	rotateBoard();
-
+	rotate(grid);
+	rotate(grid);
 
 }
 function gameOver() {
 	// let gameOver = true;
 	for (let i = 0; i < 4; i++) {
 		for (let j = 0; j < 4; j++) {
+
+			if (grid[i][j] == 2048) {
+				return true;
+			}
 			if (grid[i][j] == 0) {
 				return false;
 			}
@@ -142,22 +140,23 @@ function gameOver() {
 		}
 
 	}
-	// console.log('Game over');
-	return true;
+
+	 console.log("You lost :(");
 
 
-}
-console.log('Game over');
-function gameWon() {
-	for (let i = 0; i < 4; i++) {
-		for (let j = 0; j < 4; j++) {
-			if (grid[i][j] == 2048) {
-				return true;
-			}
-		}
-	}
-	return false;
 
 }
+// console.log('Game over');
 
 
+// function gameWon() {
+// 	for (let i = 0; i < 4; i++) {
+// 		for (let j = 0; j < 4; j++) {
+// 			if (grid[i][j] == 2048) {
+// 				return true;
+// 			}
+// 		}
+// 	}
+// 	return false;
+
+// }
