@@ -1,7 +1,10 @@
-var grid = [[0, 0, 0, 0],
-[0, 0, 2, 0],
-[0, 0, 0, 0],
-[0, 0, 2, 0]];
+var grid = [
+	[0, 0, 0, 0],
+	[0, 0, 2, 0],
+	[0, 0, 0, 0],
+	[0, 0, 2, 0]
+];
+
 var i, j, row, col = 0;
 
 function generateNumbers() {
@@ -23,22 +26,21 @@ console.log(grid);
 //console.log(grid);
 
 
-function rotateBoard(array) {
 
-	var newArray = [];
-	for (var i = 0; i < array.length; i++) {
-		newArray.push([]);
-	};
-	for (var i = 0; i < array.length; i++) {
-		for (var j = 0; j < array.length; j++) {
-			newArray[j].push(array[i][j]);
-		};
-	};
-	return newArray;
-
-}
-console.log(rotateBoard(grid));
-
+var rotate = function (matrix) {
+	// Copy the original matrix
+	var origMatrix = matrix.slice();
+	for (var i = 0; i < matrix.length; i++) {
+		// Map each row entry to its rotated value
+		var row = matrix[i].map(function (x, j) {
+			var k = (matrix.length - 1) - j;
+			return origMatrix[k][i];
+		});
+		matrix[i] = row;
+	}
+	return matrix;
+};
+console.log(rotate(grid));
 
 function moveUp() {
 
@@ -123,38 +125,38 @@ function moveDown() {
 
 
 }
-function gameOver(){
+function gameOver() {
 	// let gameOver = true;
-	for(let i =0;i<4;i++){
-		for(let j=0;j<4;j++){
-			if(grid[i][j]==0){
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 4; j++) {
+			if (grid[i][j] == 0) {
 				return false;
 			}
-		    if( i !== 3 && grid[i][j]==grid[i+1][j]){
-			 return false;
-		    }
-		    if(j !==3 && grid[i][j]==grid[i][j+1]){
-			 return false;
-		    }	
+			if (i !== 3 && grid[i][j] == grid[i + 1][j]) {
+				return false;
+			}
+			if (j !== 3 && grid[i][j] == grid[i][j + 1]) {
+				return false;
+			}
 
 		}
-		
+
 	}
 	// console.log('Game over');
 	return true;
-	
+
 
 }
 console.log('Game over');
-function gameWon(){
-	for(let i =0;i<4;i++){
-		for(let j=0;j<4;j++){
-			if(grid[i][j]==2048){
+function gameWon() {
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 4; j++) {
+			if (grid[i][j] == 2048) {
 				return true;
 			}
 		}
 	}
-	return false;		
+	return false;
 
 }
 
