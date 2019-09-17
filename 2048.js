@@ -5,15 +5,18 @@ var grid = [
 	[0, 0, 0, 0]
 ];
 
-var i, j, row, col = 0;
+var i, j, row,m,n, col = 0;
 
 
+// update();
 
-generateNumbers();
-generateNumbers();
+
+update();
 // console.log(grid);
 // moveDown();
 // console.log(grid);
+
+function update(){
 document.getElementById("box1").innerHTML = grid[0][0];
 document.getElementById("box2").innerHTML = grid[0][1];
 document.getElementById("box3").innerHTML = grid[0][2];
@@ -30,10 +33,10 @@ document.getElementById("box13").innerHTML = grid[3][0];
 document.getElementById("box14").innerHTML = grid[3][1];
 document.getElementById("box15").innerHTML = grid[3][2];
 document.getElementById("box16").innerHTML = grid[3][3];
-
+}
 function generateNumbers() {
 	var k = 1;
-	while (k) {
+	while (k && gridFull()) {
 		i = Math.floor(Math.random() * grid.length);
 		j = Math.floor(Math.random() * grid.length);
 
@@ -44,6 +47,20 @@ function generateNumbers() {
 		}
 	}
 }
+
+function gridFull(){
+
+	for(m=0;m<4;m++){
+		for(n=0;n<4;n++){
+			if(grid[m][n]==0)
+			return true;
+	}
+		}
+
+	
+	return false;
+}
+
 
 
 
@@ -83,7 +100,8 @@ function moveUp() {
 		}
 
 	}
-
+generateNumbers();
+generateNumbers();
 }
 
 
@@ -158,7 +176,7 @@ function gameOver() {
 
 	}
 
-	console.log("You lost :(");
+	return true;
 
 
 
@@ -168,12 +186,21 @@ document.onkeydown = function (event) {
 
 	if (event.keyCode === 38 || event.keyCode === 87) {
 		moveUp();
+		
 	} else if (event.keyCode === 39 || event.keyCode === 68) {
-		moveRight();
+		moveLeft();
+		
 	} else if (event.keyCode === 40 || event.keyCode === 83) {
 		moveDown();
+		
 	} else if (event.keyCode === 37 || event.keyCode === 65) {
-		moveLeft();
+		moveRight();
+		
 	}
+update();
+if(gameOver()){
+	alert("Game Over");
+}
+update();
 
 }
