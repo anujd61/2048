@@ -1,30 +1,26 @@
 h1{
     text-align: center;
-    margin :0px;
+    color: #475594;
+}
+body{
+    background-color: #57407c;
 }
 .cointainer{
-    width :900px;
-    margin-left:500px ;
-    height:500px;
-    margin-top:50px;
-    /*background-color: #005ccc;*/
+    width :500px;
+    margin-left:425px ;
+    margin-top: 80px;
 }
 .box{
-    
-    border :7px solid black;
-    /*background-color: rgba(50, 37, 23, 0.35);*/
+    border: 5px transparent;
     width: 100px;
     height: 60px;
     text-align: center;
-    margin-right: 70px;
-    margin-top: 15px;
-    float: right;
-    padding-top: 40px;
+    padding:20px;
     border-radius: 10px;
-    background: rgba(238, 228, 218, 0.35);
-    font: sans-serif;
-    font-size: 25px;
-    color: black;
+    background-color: #cac1b1;
+    font-size: 35px;
+    color: #475594;
+    font-family: sans-serif;
 }    
 
 

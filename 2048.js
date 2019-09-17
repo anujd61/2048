@@ -5,34 +5,35 @@ var grid = [
 	[0, 0, 0, 0]
 ];
 
-var i, j, row,m,n, col = 0;
+var i, j, row, m, n, col = 0;
 
 
 // update();
 
 
-update();
+// update();
 // console.log(grid);
 // moveDown();
 // console.log(grid);
 
-function update(){
-document.getElementById("box1").innerHTML = grid[0][0];
-document.getElementById("box2").innerHTML = grid[0][1];
-document.getElementById("box3").innerHTML = grid[0][2];
-document.getElementById("box4").innerHTML = grid[0][3];
-document.getElementById("box5").innerHTML = grid[1][0];
-document.getElementById("box6").innerHTML = grid[1][1];
-document.getElementById("box7").innerHTML = grid[1][2];
-document.getElementById("box8").innerHTML = grid[1][3];
-document.getElementById("box9").innerHTML = grid[2][0];
-document.getElementById("box10").innerHTML = grid[2][1];
-document.getElementById("box11").innerHTML = grid[2][2];
-document.getElementById("box12").innerHTML = grid[2][3];
-document.getElementById("box13").innerHTML = grid[3][0];
-document.getElementById("box14").innerHTML = grid[3][1];
-document.getElementById("box15").innerHTML = grid[3][2];
-document.getElementById("box16").innerHTML = grid[3][3];
+function update() {
+	document.getElementById("box1").innerHTML = grid[0][0];
+	document.getElementById("box2").innerHTML = grid[0][1];
+	document.getElementById("box3").innerHTML = grid[0][2];
+	document.getElementById("box4").innerHTML = grid[0][3];
+	document.getElementById("box5").innerHTML = grid[1][0];
+	document.getElementById("box6").innerHTML = grid[1][1];
+	document.getElementById("box7").innerHTML = grid[1][2];
+	document.getElementById("box8").innerHTML = grid[1][3];
+	document.getElementById("box9").innerHTML = grid[2][0];
+	document.getElementById("box10").innerHTML = grid[2][1];
+	document.getElementById("box11").innerHTML = grid[2][2];
+	document.getElementById("box12").innerHTML = grid[2][3];
+	document.getElementById("box13").innerHTML = grid[3][0];
+	document.getElementById("box14").innerHTML = grid[3][1];
+	document.getElementById("box15").innerHTML = grid[3][2];
+	document.getElementById("box16").innerHTML = grid[3][3];
+
 }
 function generateNumbers() {
 	var k = 1;
@@ -48,16 +49,16 @@ function generateNumbers() {
 	}
 }
 
-function gridFull(){
+function gridFull() {
 
-	for(m=0;m<4;m++){
-		for(n=0;n<4;n++){
-			if(grid[m][n]==0)
-			return true;
-	}
+	for (m = 0; m < 4; m++) {
+		for (n = 0; n < 4; n++) {
+			if (grid[m][n] == 0)
+				return true;
 		}
+	}
 
-	
+
 	return false;
 }
 
@@ -100,8 +101,8 @@ function moveUp() {
 		}
 
 	}
-generateNumbers();
-generateNumbers();
+	generateNumbers();
+	// generateNumbers();
 }
 
 
@@ -186,21 +187,55 @@ document.onkeydown = function (event) {
 
 	if (event.keyCode === 38 || event.keyCode === 87) {
 		moveUp();
-		
+
 	} else if (event.keyCode === 39 || event.keyCode === 68) {
-		moveLeft();
-		
+		moveRight();
+
 	} else if (event.keyCode === 40 || event.keyCode === 83) {
 		moveDown();
-		
+
 	} else if (event.keyCode === 37 || event.keyCode === 65) {
-		moveRight();
-		
+		moveLeft();
+
 	}
-update();
-if(gameOver()){
-	alert("Game Over");
+	// update();
+	if (gameOver()) {
+		alert("Game Over");
+	}
+	update();
+	getColor();
 }
-update();
+
+function getColor() {
+	var x = document.getElementsByClassName("box");
+	for (i = 0; i < x.length; i++) {
+		switch (x[i].innerHTML) {
+
+			case '0': x[i].style.backgroundColor = "#ffffff";
+				x[i].style.color = "#ffffff"; break;
+			case '2': x[i].style.backgroundColor = "#ece3c5"; break;
+			case '4': x[i].style.backgroundColor = "#41c9b8"; break;
+			case '8': x[i].style.backgroundColor = "#f6b172"; break;
+			case '16': x[i].style.backgroundColor = "#fc915b"; break;
+			case '32': x[i].style.backgroundColor = "#ff6f59"; break;
+			case '64': x[i].style.backgroundColor = "#ff4831"; break;
+			case '128': x[i].style.backgroundColor = "#ead868"; break;
+			case '256': x[i].style.backgroundColor = "ead556"; break;
+			case '512': x[i].style.backgroundColor = "ebd141"; break;
+			case '1024': x[i].style.backgroundColor = "ebce29"; break;
+			case '2048': x[i].style.backgroundColor = "ebcb00"; break;
+
+		}
+
+	}
 
 }
+
+
+
+// switch ((x[i].innerHTML){
+
+
+// 	case 0: x[i].style.backgroundColor = "red";
+// 	case 2: x[i].style.backgroundColor = "red";
+// }
