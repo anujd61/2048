@@ -160,9 +160,6 @@ function gameOver() {
 	for (let i = 0; i < 4; i++) {
 		for (let j = 0; j < 4; j++) {
 
-			if (grid[i][j] == 2048) {
-				return true;
-			}
 			if (grid[i][j] == 0) {
 				return false;
 			}
@@ -183,6 +180,17 @@ function gameOver() {
 
 }
 
+function gameWon(){
+
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 4; j++) {
+
+			if (grid[i][j] == 2048) {
+							
+			alert("YOU WON!!");
+			break;
+}}}}
+
 document.onkeydown = function (event) {
 
 	if (event.keyCode === 38 || event.keyCode === 87) {
@@ -199,9 +207,11 @@ document.onkeydown = function (event) {
 
 	}
 	// update();
+	gameWon();
 	if (gameOver()) {
 		alert("Game Over");
 	}
+
 	update();
 	getColor();
 }
@@ -211,19 +221,18 @@ function getColor() {
 	for (i = 0; i < x.length; i++) {
 		switch (x[i].innerHTML) {
 
-			case '0': x[i].style.backgroundColor = "#ffffff";
-				x[i].style.color = "#ffffff"; break;
-			case '2': x[i].style.backgroundColor = "#ece3c5"; break;
-			case '4': x[i].style.backgroundColor = "#41c9b8"; break;
-			case '8': x[i].style.backgroundColor = "#f6b172"; break;
-			case '16': x[i].style.backgroundColor = "#fc915b"; break;
-			case '32': x[i].style.backgroundColor = "#ff6f59"; break;
-			case '64': x[i].style.backgroundColor = "#ff4831"; break;
-			case '128': x[i].style.backgroundColor = "#ead868"; break;
-			case '256': x[i].style.backgroundColor = "ead556"; break;
-			case '512': x[i].style.backgroundColor = "ebd141"; break;
-			case '1024': x[i].style.backgroundColor = "ebce29"; break;
-			case '2048': x[i].style.backgroundColor = "ebcb00"; break;
+			case '0': x[i].style.backgroundColor = "#ffffff";x[i].style.color = "#ffffff"; break;
+			case '2': x[i].style.backgroundColor = "#41c9b8";x[i].style.color = "#ffffff"; break;
+			case '4': x[i].style.backgroundColor = "#32a3b9";x[i].style.color = "#ffffff"; break;
+			case '8': x[i].style.backgroundColor = "#f6b172";x[i].style.color = "#ffffff"; break;
+			case '16': x[i].style.backgroundColor = "#fc915b";x[i].style.color = "#ffffff"; break;
+			case '32': x[i].style.backgroundColor = "#ff6f59";x[i].style.color = "#ffffff"; break;
+			case '64': x[i].style.backgroundColor = "#ff4831";x[i].style.color = "#ffffff"; break;
+			case '128': x[i].style.backgroundColor = "#ead868";x[i].style.color = "#ffffff"; break;
+			case '256': x[i].style.backgroundColor = "#000000";x[i].style.color = "#ffffff"; break;
+			case '512': x[i].style.backgroundColor = "#8bd099";x[i].style.color = "#ffffff"; break;
+			case '1024': x[i].style.backgroundColor = "#e70e9d";x[i].style.color = "#ffffff"; break;
+			case '2048': x[i].style.backgroundColor = "#0017ff";x[i].style.color = "#ffffff"; break;
 
 		}
 
