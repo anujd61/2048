@@ -3,13 +3,37 @@ h1{
     color: #475594;
 }
 body{
-    background-color: #57407c;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    /*width: 800px;*/
+    height: 870px
 }
 .cointainer{
-    width :500px;
-    margin-left:425px ;
-    margin-top: 80px;
+    width :50%;
+    height :50%;
+    margin-left: 37%;
+    margin-right: 37%;
+    min-height: 50px;
+    min-width: 50px;
+
+    max-width: 500px;
+    max-height: 500px;
+    /*margin-left:680px ;*/
+    /*margin-top: 120px;*/
+    /*margin-right: 600px;*/
+
 }
+
+.head1{
+
+      font-family: "Open Sans";
+      font-size: 40px;
+
+      text-align: center;
+      margin-top: 80px;
+      color:white;
+      margin-bottom: 80px;
+}
+
 .box{
     border: 5px transparent;
     width: 100px;
@@ -17,7 +41,7 @@ body{
     text-align: center;
     padding:20px;
     border-radius: 10px;
-    background-color: #cac1b1;
+    background-color: #ffffff;
     font-size: 35px;
     color: #475594;
     font-family: sans-serif;
@@ -25,6 +49,25 @@ body{
 
 
 
+.d1{
+    width: 500px;
+    margin-left: 25px ;
+  font-family: "Lexend De",sans-serif;
+  color: white;
+  /*border: 3px solid #73AD21;*/
+
+}
+
+
+/*.d1 span {
+    opacity: 0;
+    transition: opacity 1000ms
 
 
 
+}
+.d1:hover span{
+    opacity: 1;
+
+}
+*/
